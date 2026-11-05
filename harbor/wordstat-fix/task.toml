@@ -1,7 +1,7 @@
 version = "1.0"
 
 [metadata]
-author_name = "Your Name"
+author_name = "Md Jillur Rahman"
 difficulty = "easy"
 category = "debugging"
 tags = ["python", "debugging", "cli"]
