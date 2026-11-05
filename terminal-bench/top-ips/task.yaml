@@ -1,0 +1,21 @@
+instruction: |-
+  The file /app/access.log is a web server access log (one request per line, Common Log Format).
+  Some lines are comments (starting with "#"), blank, or malformed; ignore them.
+
+  Find the 3 client IP addresses with the most SUCCESSFUL requests (HTTP status 200-299 only)
+  and write them to /app/top_ips.txt, one per line, in the format:
+
+      <ip> <count>
+
+  Sort by count descending. Do not modify /app/access.log.
+author_name: Your Name
+author_email: you@example.com
+difficulty: easy
+category: file-operations
+tags:
+  - bash
+  - log-analysis
+parser_name: pytest
+max_agent_timeout_sec: 180.0
+max_test_timeout_sec: 60.0
+run_tests_in_same_shell: false

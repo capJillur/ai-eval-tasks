@@ -1,0 +1,20 @@
+diff --git a/tests/test_slugify.py b/tests/test_slugify.py
+index 45a75ce..c300f26 100644
+--- a/tests/test_slugify.py
++++ b/tests/test_slugify.py
+@@ -19,3 +19,15 @@ def test_max_length_plain_truncation():
+ 
+ def test_empty_string():
+     assert slugify("") == ""
++
++
++def test_collapses_repeated_separators():
++    assert slugify("Hello   World!!") == "hello-world"
++
++
++def test_strips_leading_and_trailing_separators():
++    assert slugify("  --Hello--  ") == "hello"
++
++
++def test_truncation_does_not_leave_trailing_hyphen():
++    assert slugify("hello world", max_length=6) == "hello"

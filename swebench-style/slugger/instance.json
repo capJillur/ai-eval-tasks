@@ -1,0 +1,20 @@
+{
+  "instance_id": "slugger__slugger-1",
+  "repo": "local snapshot in ./base (a real SWE-bench instance points at an upstream GitHub repo)",
+  "base_commit": "n/a (snapshot is committed fresh by run_eval.py)",
+  "problem_statement": "slugify produces ugly slugs for messy input.\n\nslugify(\"Hello   World!!\") returns \"hello---world--\" but should return \"hello-world\".\nRuns of non-alphanumeric characters should collapse into a single hyphen, and leading/trailing\nhyphens should be removed.\n\nAlso, when max_length cuts the slug in the middle of a separator, a trailing hyphen is left:\nslugify(\"hello world\", max_length=6) returns \"hello-\" but should return \"hello\".",
+  "patch": "gold.patch",
+  "test_patch": "test.patch",
+  "FAIL_TO_PASS": [
+    "tests/test_slugify.py::test_collapses_repeated_separators",
+    "tests/test_slugify.py::test_strips_leading_and_trailing_separators",
+    "tests/test_slugify.py::test_truncation_does_not_leave_trailing_hyphen"
+  ],
+  "PASS_TO_PASS": [
+    "tests/test_slugify.py::test_basic",
+    "tests/test_slugify.py::test_already_slug",
+    "tests/test_slugify.py::test_underscore_becomes_hyphen",
+    "tests/test_slugify.py::test_max_length_plain_truncation",
+    "tests/test_slugify.py::test_empty_string"
+  ]
+}
